@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Harrison Wells</title>
+    <meta charset="utf-8"/>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'lessonPlan/semantic-ui/semantic.css' %}" type="text/css">
+    <script src="{% static 'lessonPlan/js/jquery-3.2.0.js' %}"></script>
+    <script src="{% static 'lessonPlan/semantic-ui/semantic.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.special.cards .image').dimmer({
+                on: 'hover'
+            });
+            $('.ui.dropdown').dropdown();
+        })
+    </script>
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+{% block content %}
+{% endblock %}
+</body>
+</html>

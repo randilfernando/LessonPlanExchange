@@ -1,0 +1,107 @@
+{% extends 'lessonPlan/master.html' %}
+
+{% block content %}
+
+    {% include 'lessonPlan/includes/header.html' %}
+
+    <main>
+        <div class="ui middle aligned doubling stackable centered container grid"
+             style="padding-top: 20vh; padding-bottom: 20vh;">
+            <div class="one column row">
+                <div class="column">
+                    <div class="ui form">
+                        <div class="inline fields">
+                            <div class="two wide field">
+                                <div class="ui dropdown">
+                                    <div class="text">Search By</div>
+                                    <i class="dropdown icon"></i>
+                                    <div class="menu">
+                                        <div class="item" data-value="Subject">Subject</div>
+                                        <div class="item" data-value="Topic">Topic</div>
+                                        <div class="item" data-value="Author">Author</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sixteen wide field">
+                                <div class="ui fluid icon input">
+                                    <input type="text" placeholder="Search a very wide input...">
+                                    <i class="circular search link icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="five column centered row">
+                <div class="column">
+                    <div class="ui special cards">
+                        <div class="card">
+                            <div class="blurring dimmable image">
+                                <div class="ui dimmer">
+                                    <div class="content">
+                                        <div class="center">
+                                            <div class="ui inverted button" id="browse_by_subject">By Subject</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% load staticfiles %}
+                                <img src="{% static 'lessonPlan/image/search.jpg' %}" style="height: auto; width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui special cards">
+                        <div class="card">
+                            <div class="blurring dimmable image">
+                                <div class="ui dimmer">
+                                    <div class="content">
+                                        <div class="center">
+                                            <div class="ui inverted button" id="browse_by_grade">By Grade</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% load staticfiles %}
+                                <img src="{% static 'lessonPlan/image/search.jpg' %}" style="height: auto; width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui special cards">
+                        <div class="card">
+                            <div class="blurring dimmable image">
+                                <div class="ui dimmer">
+                                    <div class="content">
+                                        <div class="center">
+                                            <div class="ui inverted button" id="add_lesson">Add Lesson</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% load staticfiles %}
+                                <img src="{% static 'lessonPlan/image/add.jpg' %}" style="height: auto; width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {% include 'lessonPlan/includes/footer.html' %}
+
+    <script>
+        $(document).ready(function () {
+            $('#add_lesson').click(function () {
+                location.href = "/add-lesson"
+            });
+            $('#browse_by_subject').click(function () {
+                location.href = "/browse-by-subject"
+            });
+            $('#browse_by_grade').click(function () {
+                location.href = "/browse-by-grade"
+            });
+        })
+    </script>
+
+{% endblock %}

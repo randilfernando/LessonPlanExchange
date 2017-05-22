@@ -1,0 +1,85 @@
+{% extends 'lessonPlan/master.html' %}
+
+{% block content %}
+
+    {% include 'lessonPlan/includes/header.html' %}
+
+    <main>
+        <div class="ui stackable three column centered grid" style="padding-top: 20vh; padding-bottom: 10vh">
+            <div class="column">
+                <form class="ui form">
+                    <div class="field">
+                        <label>Medium</label>
+                        <div class="ui selection dropdown">
+                            <input type="hidden" name="medium">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">- Select Medium -</div>
+                            <div class="menu">
+                                {% for medium in mediums %}
+                                    <div class="item" data-value={{ medium }}>{{ medium }}</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Grade</label>
+                        <div class="ui selection dropdown">
+                            <input type="hidden" name="gade">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">- Select Grade -</div>
+                            <div class="menu">
+                                {% for grade in grades %}
+                                    <div class="item" data-value={{ grade }}>Grade {{ grade }}</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Subject</label>
+                        <input type="text" name="subject" placeholder="Enter subject name">
+                    </div>
+                    <div class="field">
+                        <label>Topic</label>
+                        <div class="ui fluid search selection dropdown">
+                            <input type="hidden" name="topic">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">- Select Topic -</div>
+                            <div class="menu">
+                                {% for topic in topics %}
+                                    <div class="item" data-value={{ topic }}>{{ topic }}</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Day</label>
+                        <div class="ui selection dropdown">
+                            <input type="hidden" name="day">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">- Select Day -</div>
+                            <div class="menu">
+                                {% for day in days %}
+                                    <div class="item" data-value={{ day }}>Day {{ day }}</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>PDF</label>
+                        <input type="text" name="pdf_link" placeholder="Enter link of the PDF">
+                    </div>
+                    <div class="field">
+                        <div class="fluid ui buttons" style="padding-top: 20px">
+                            <button class="ui button grey">Cancel</button>
+                            <div class="or"></div>
+                            <button class="ui button blue">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    {% include 'lessonPlan/includes/footer.html' %}
+
+{% endblock %}
